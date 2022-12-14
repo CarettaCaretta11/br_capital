@@ -6,6 +6,8 @@ BR Capital innovativ investisiya platformudur. Bizi fərqləndirən xüsusiyyət
 * Valideynlər üçün uşaqların gələcəyinə investisiya imkanı
 
 Demo versiya ilə [linkdən](https://brcapital.herokuapp.com/) tanış ola bilərsiniz.
+UPDATE: The project is not maintained, and the link provided above may possibly not work after some point.
+
 
 ![md_logo_final](https://user-images.githubusercontent.com/109274714/183361318-7a85052d-fad2-4ebc-ba88-3834e3cda26b.svg)
 
