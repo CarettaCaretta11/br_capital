@@ -10,6 +10,7 @@ class AbstractInvestment(models.Model):
     class Meta:
         abstract=True
 
+
 class Investor(AbstractUser):
     identity_fin = models.CharField(max_length=50, unique=True)
     contact_num = models.CharField(max_length=50, unique=True)
@@ -53,6 +54,7 @@ class Investor(AbstractUser):
     def __str__(self):
         return f"{self.username} - {self.identity_fin}"
 
+
 class InvestorWallet(models.Model):
     curr = models.CharField(max_length=20)
     balance = models.FloatField()
@@ -63,6 +65,7 @@ class InvestorWallet(models.Model):
     
     def __str__(self):
         return f"{self.investor}'s {self.curr} wallet"
+
 
 class Startup(models.Model):
     name = models.CharField(max_length=50)
@@ -75,6 +78,7 @@ class Startup(models.Model):
     def __str__(self):
         return self.name
 
+
 class StartupWallet(models.Model):
     curr = models.CharField(max_length=20)
     balance = models.FloatField()
@@ -86,6 +90,7 @@ class StartupWallet(models.Model):
     def __str__(self):
         return f"{self.startup}'s {self.curr} wallet"
 
+
 class Investment(AbstractInvestment):
     # offer = models.ForeignKey(Offer, on_delete=models.CASCADE, related_name="investments")
     investor = models.ForeignKey(Investor, on_delete=models.CASCADE, related_name="investments")
@@ -94,6 +99,7 @@ class Investment(AbstractInvestment):
 
     def __str__(self):
         return f"{self.startup} - {self.investor}"
+
 
 class Offer(models.Model):
     startup = models.ForeignKey(Startup, on_delete=models.CASCADE, related_name="offers")
@@ -147,6 +153,7 @@ class Offer(models.Model):
         a.save()
         b.save()
         c.save()
+
 
 class OfferWallet(models.Model):
     curr = models.CharField(max_length=20)
