@@ -4,6 +4,7 @@ from django.db.models import F
 import datetime
 from cloudinary.models import CloudinaryField
 
+
 class AbstractInvestment(models.Model):
     offer = models.ForeignKey('Offer', on_delete=models.CASCADE, related_name="investments", null=True, blank=True)
 
@@ -146,9 +147,9 @@ class Offer(models.Model):
         if not self.available: self.available = self.total_equity
         super(Offer, self).save(*args, **kwargs)
         a, b, c = [
-            OfferWallet(curr = 'AZN', balance = 0.0, iban_no = 'AZ9287265392706420', offer = self),
-            OfferWallet(curr = 'USD', balance = 0.0, iban_no = 'AZ9287265392706420', offer = self),
-            OfferWallet(curr = 'EUR', balance = 0.0, iban_no = 'AZ9287265392706420', offer = self)
+            OfferWallet(curr='AZN', balance=0.0, iban_no='AZ9287265392706420', offer=self),
+            OfferWallet(curr='USD', balance=0.0, iban_no='AZ9287265392706420', offer=self),
+            OfferWallet(curr='EUR', balance=0.0, iban_no='AZ9287265392706420', offer=self)
         ]
         a.save()
         b.save()
