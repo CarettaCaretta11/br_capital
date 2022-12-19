@@ -1,7 +1,6 @@
 from pathlib import Path
 import os
 import cloudinary
-import django_heroku
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -9,10 +8,9 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 
 DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com', 'web-production-a79d.up.railway.app']
+ALLOWED_HOSTS = ['127.0.0.1', '.railway.app']
 
 CSRF_TRUSTED_ORIGINS = ['https://web-production-a79d.up.railway.app', 'http://127.0.0.1/']
-
 
 INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',
@@ -105,10 +103,8 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-django_heroku.settings(locals())
-
 cloudinary.config(
-    cloud_name = os.environ.get("CLOUDINARY_CLOUD_NAME"),
-    api_key = os.environ.get("CLOUDINARY_API_KEY"),
-    api_secret = os.environ.get("CLOUDINARY_API_SECRET")
+    cloud_name=os.environ.get("CLOUDINARY_CLOUD_NAME"),
+    api_key=os.environ.get("CLOUDINARY_API_KEY"),
+    api_secret=os.environ.get("CLOUDINARY_API_SECRET")
 )
